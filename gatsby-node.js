@@ -1,14 +1,10 @@
+const { products } = require('./src/assets/data');
+
 exports.createPages = ({ actions }) => {
   const { createPage } = actions;
 
-  const products = [
-    {
-      id: '1',
-      name: 'toothbrush',
-    },
-  ];
-
   products.forEach((product) => {
+    console.log(product);
     createPage({
       path: `/${product.name}`,
       component: require.resolve(`./src/templates/product-template.js`),
