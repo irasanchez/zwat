@@ -1,12 +1,15 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import Helmet from 'react-helmet';
 import Layout from '../components/layout';
+import List from '../components/List';
 
 export default function Home() {
   return (
-    <Layout>
-      <Link to="/contact/">Contact</Link>
-      <p>What a world.</p>
-    </Layout>
+    <>
+      <Helmet></Helmet>
+      <Layout>
+        <List />
+      </Layout>
+    </>
   );
 }
