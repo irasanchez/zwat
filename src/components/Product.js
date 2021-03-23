@@ -1,94 +1,26 @@
 import React from 'react';
 import {
-  AppBar,
   Button,
   Card,
   CardActions,
   CardContent,
   CardHeader,
+  CardMedia,
   CssBaseline,
   Grid,
-  Toolbar,
   Typography,
-  Link,
   Container,
-  Box,
 } from '@material-ui/core';
 
-const tiers = [
-  {
-    title: 'Free',
-    price: '0',
-    description: [
-      '10 users included',
-      '2 GB of storage',
-      'Help center access',
-      'Email support',
-    ],
-    buttonText: 'Sign up for free',
-    buttonVariant: 'outlined',
-  },
-  {
-    title: 'Pro',
-    subheader: 'Most popular',
-    price: '15',
-    description: [
-      '20 users included',
-      '10 GB of storage',
-      'Help center access',
-      'Priority email support',
-    ],
-    buttonText: 'Get started',
-    buttonVariant: 'contained',
-  },
-  {
-    title: 'Enterprise',
-    price: '30',
-    description: [
-      '50 users included',
-      '30 GB of storage',
-      'Help center access',
-      'Phone & email support',
-    ],
-    buttonText: 'Contact us',
-    buttonVariant: 'outlined',
-  },
-];
-const footers = [
-  {
-    title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Locations'],
-  },
-  {
-    title: 'Features',
-    description: [
-      'Cool stuff',
-      'Random feature',
-      'Team feature',
-      'Developer stuff',
-      'Another one',
-    ],
-  },
-  {
-    title: 'Resources',
-    description: [
-      'Resource',
-      'Resource name',
-      'Another resource',
-      'Final resource',
-    ],
-  },
-  {
-    title: 'Legal',
-    description: ['Privacy policy', 'Terms of use'],
-  },
-];
-
 export default function Product({ product }) {
+  console.log(product.sources);
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="sm" component="main">
+      <Container
+        maxWidth="lg"
+        component="main"
+      >
         <Typography
           component="h1"
           variant="h2"
@@ -106,38 +38,33 @@ export default function Product({ product }) {
         >
           {product.description}
         </Typography>
-      </Container>
 
-      <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
-          {tiers.map((tier) => (
+          {product.sources.map((source) => (
             // Enterprise card is full width at sm breakpoint
-            <Grid
-              item
-              key={tier.title}
-              xs={12}
-              sm={6}
-              md={4}
-            >
+            <Grid item key={source.id} xs={12} sm={6} md={4}>
               <Card>
+                <CardMedia
+                  component="img"
+                  alt={source.imgAlt}
+                  height="140"
+                  image={source.img}
+                  title="Contemplative Reptile"
+                />
                 <CardHeader
-                  title={tier.title}
-                  subheader={tier.subheader}
+                  title={source.title}
+                  subheader={source.description}
                   titleTypographyProps={{ align: 'center' }}
                   subheaderTypographyProps={{ align: 'center' }}
-                  action={tier.title === 'Pro' ? <img /> : null}
                 />
                 <CardContent>
                   <div>
                     <Typography component="h2" variant="h3" color="textPrimary">
-                      ${tier.price}
-                    </Typography>
-                    <Typography variant="h6" color="textSecondary">
-                      /mo
+                      ~${source.price}
                     </Typography>
                   </div>
-                  <ul>
-                    {tier.description.map((line) => (
+                  {/* <ul>
+                    {source.description.map((line) => (
                       <Typography
                         component="li"
                         variant="subtitle1"
@@ -147,15 +74,16 @@ export default function Product({ product }) {
                         {line}
                       </Typography>
                     ))}
-                  </ul>
+                  </ul> */}
                 </CardContent>
                 <CardActions>
                   <Button
                     fullWidth
-                    variant={tier.buttonVariant}
+                    variant="contained"
                     color="primary"
+                    aria-label={`Buy ${source.title}`}
                   >
-                    {tier.buttonText}
+                    Buy
                   </Button>
                 </CardActions>
               </Card>

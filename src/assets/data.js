@@ -7,7 +7,9 @@ module.exports = {
       name: 'toothbrush',
       description: 'When it\'s time to replace them, choose one that won\'t outlast our whole species.',
       sources: [
-        { url: '', title: '', description: 'Made of Bamboo', img: 'https://www.joopzy.com/wp-content/uploads/2018/10/NEW-Natural-Bamboo-Toothbrush-Bamboo-Charcoal-Toothbrush-Low-Carbon-Bamboo-Nylon-Wood-Handle-Toothbrush-for-Children-1-1.jpg', imgAlt: 'bamboo toothbrush' },
+        { id:'jvdcjahvfhavh', url: '', title: 'Bamboo Toothbrush from GreenBay', description: 'Made of Bamboo', img: 'https://www.joopzy.com/wp-content/uploads/2018/10/NEW-Natural-Bamboo-Toothbrush-Bamboo-Charcoal-Toothbrush-Low-Carbon-Bamboo-Nylon-Wood-Handle-Toothbrush-for-Children-1-1.jpg', imgAlt: 'bamboo toothbrush', price: '10' },
+        { id:'jvddsvasvacjahvfhavh', url: '', title: 'Bamboo Toothbrush from GreenBay', description: 'Made of Bamboo', img: 'https://www.joopzy.com/wp-content/uploads/2018/10/NEW-Natural-Bamboo-Toothbrush-Bamboo-Charcoal-Toothbrush-Low-Carbon-Bamboo-Nylon-Wood-Handle-Toothbrush-for-Children-1-1.jpg', imgAlt: 'bamboo toothbrush', price: '10' },
+        { id:'jv,bjgjvdcjahvfhavh', url: '', title: 'Bamboo Toothbrush from GreenBay', description: 'Made of Bamboo', img: 'https://www.joopzy.com/wp-content/uploads/2018/10/NEW-Natural-Bamboo-Toothbrush-Bamboo-Charcoal-Toothbrush-Low-Carbon-Bamboo-Nylon-Wood-Handle-Toothbrush-for-Children-1-1.jpg', imgAlt: 'bamboo toothbrush', price: '10' },
       ],
     },
   ],
