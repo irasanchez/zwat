@@ -28,7 +28,7 @@ export default function Product({ product }) {
         <Typography
           variant="h5"
           align="center"
-          color="textSecondary"
+          color="textPrimary"
           component="p"
           style={{ marginBottom: '70px' }}
         >
