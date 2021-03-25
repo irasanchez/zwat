@@ -1,48 +1,23 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
-
-// styles
-const pageStyles = {
-  color: '#232129',
-  padding: '96px',
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
-};
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-};
-
-const paragraphStyles = {
-  marginBottom: 48,
-};
-const codeStyles = {
-  color: '#8A6534',
-  padding: 4,
-  backgroundColor: '#FFF4DB',
-  fontSize: '1.25rem',
-  borderRadius: 4,
-};
-
+import { Typography } from '@material-ui/core';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 // markup
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{' '}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{' '}
-        we couldn’t find what you were looking for.
-        <br />
-        Either it doesn't exist yet, or I need to find some examples to add to
-        the list. Please contact me to begin researching for products.
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
+    <>
+      <SEO title="" description="" />
+      <Layout>
+        <main>
+          <Typography variant="h1" component="h1">
+            Sorry, we don't have a recommendation for the item you're looking
+            for. The list is growing as more products are found.
+          </Typography>
+          <Link to="/">Click here to look for something else.</Link>
+        </main>
+      </Layout>
+    </>
   );
 };
 

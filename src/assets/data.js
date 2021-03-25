@@ -4,9 +4,10 @@ module.exports = {
   products: [
     {
       id: '1',
-      name: 'toothbrush',
+      name: 'Toothbrush',
+      slug: 'toothbrush',
       description:
-        "When it's time to replace them, choose one that won't outlast our whole species.",
+        'Teeth eventually break down in the environment long after we are gone. Tools used to clean them should too.',
       sources: [
         {
           id: 'jvdcjahvfhavh',
@@ -42,9 +43,10 @@ module.exports = {
     },
     {
       id: '2',
-      name: 'toothpaste',
+      name: 'Toothpaste',
+      slug: 'toothpaste',
       description:
-        "When it's time to replace them, choose one that won't outlast our whole species.",
+        'The tubes and packaging of toothpaste are the main problem. How are you supposed to upcycle a tube? Bypass that whole mess and get one with zero waste packaging.',
       sources: [
         {
           id: 'jvdcjhvjvjahvfhavh',
@@ -61,8 +63,10 @@ module.exports = {
     },
     {
       id: '3',
-      name: 'tongue scraper',
-      description: 'Clean your tongue while keeping the planet clean too.',
+      name: 'Tongue Scraper',
+      slug: 'tongue-scraper',
+      description:
+        "If you're scraping you're tongue fast enough that it needs bicycle grips on the end, it's time to take a deep breath",
       sources: [],
     },
   ],

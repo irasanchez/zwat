@@ -1,7 +1,15 @@
 module.exports = {
   siteMetadata: {
     title: 'Zero Waste Alternative',
+    titleTemplate: '',
+    url: 'https://zerowastealternative.to',
     siteUrl: 'https://zerowastealternative.to',
+    description:
+      'Find zero waste, plastic-free, recycled, and/or compostable alternatives to everyday items.',
+    image: '',
+    owner: 'Ira Sanchez',
+    twitterUsername: '',
+    facebookAppID: '',
   },
   plugins: [
     `gatsby-plugin-material-ui`,

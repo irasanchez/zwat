@@ -1,55 +1,118 @@
 import React, { useState, useEffect } from 'react';
-import { TextField } from '@material-ui/core';
-import { Autocomplete } from '@material-ui/lab';
+import Typewriter from 'typewriter-effect';
 import { navigate } from 'gatsby';
+import { Container } from '@material-ui/core';
+import Autocomplete from 'accessible-autocomplete/react';
+import { makeStyles } from '@material-ui/core/styles';
+import { theme } from '../assets/theme';
+import { TrendingUpRounded } from '@material-ui/icons';
 const { products } = require('../assets/data');
 
+const useStyles = makeStyles({
+  containerStyle: {
+    maxWidth: '50vw',
+    '& .autocomplete__wrapper': {
+      display: 'block',
+      width: '100%',
+      marginTop: '50px',
+    },
+    '& .autocomplete__wrapper input': {
+      height: '50px',
+      borderRadius: '.25rem',
+      display: 'block',
+      width: '100%',
+      fontSize: '1.5rem',
+    },
+    '& .autocomplete__input:focus': {
+      outline: 'none',
+    },
+    '& .autocomplete__menu--visible': {
+      borderRadius: '.25rem',
+      padding: '10px',
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'stretch',
+      backgroundColor: theme.palette.white.main,
+    },
+    '& .autocomplete__menu--hidden': {
+      display: 'none',
+    },
+    '& .autocomplete__option': {
+      padding: '10px 5%',
+      margin: '0',
+      fontSize: '1.5rem',
+      listStyleType: 'none',
+      minWidth: '100%',
+    },
+    '& .autocomplete__option:focus': {
+      listStyleType: 'none',
+      color: theme.palette.white.main,
+      backgroundColor: '#008080',
+      outline: 'none',
+    },
+    '& .anchor': {
+      position: 'absolute',
+      height: '50px',
+    },
+    '& .typewriter-effect': {
+      position: 'relative',
+      top: '-40px',
+      left: '11px',
+    },
+    '& .Typewriter': {
+      fontSize: '1.5rem',
+    },
+  },
+});
+
 export default function Search() {
-  const [query, setQuery] = useState('');
-  const [select, setSelect] = useState(0);
-  const handleInputChange = (e, v) => {
-    if (e === null) {
-      setQuery(v);
-    } else if (typeof e.target.value === 'number') {
-      setQuery(products[e.target.value].name);
-    } else {
-      setQuery(e.target.value);
-    }
+  const [typewriterVisible, setVisibility] = useState(true);
+  const { containerStyle } = useStyles();
+  const productNames = products.map((prod) => prod.name.toLowerCase());
+
+  const handleVisibility = () => {
+    setVisibility(false);
+  };
+  const handleOnSearch = (value, populateResults) => {
+    if (!value) return productNames;
+    const filteredResults = productNames.filter((product) =>
+      product.includes(value.toLowerCase())
+    );
+    populateResults(filteredResults);
   };
 
-  const handleSubmit = (e, v) => {
-    e.preventDefault();
-    e.persist();
-    console.log(`submitting ${query} ${v}`);
-    if (query !== '') {
-      navigate(`/${query}`);
+  const handleSubmit = (selection) => {
+    if (selection) {
+      const product = products.find((prod) =>
+        prod.name.toLowerCase().includes(selection.toLowerCase())
+      );
+      navigate(`/${product.slug}`);
     }
   };
 
   return (
-    <div style={{ width: '20vw', margin: '0 auto' }}>
-      <form onSubmit={handleSubmit}>
+    <Container classes={{ root: containerStyle }}>
+      <div className="anchor" onClick={handleVisibility}>
         <Autocomplete
-          noOptionsText=""
-          autoSelect
-          id="free-solo-2-demo"
-          disableClearable
-          inputValue={query}
-          onInputChange={handleInputChange}
-          // onChange={handleChange}
-          options={products.map((product) => product.name)}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Search input"
-              margin="normal"
-              variant="outlined"
-              InputProps={{ ...params.InputProps, type: 'search' }}
-              type="submit"
-            />
-          )}
+          confirmOnBlur={false}
+          autoFocus
+          id="autocomplete"
+          source={handleOnSearch}
+          onConfirm={handleSubmit}
         />
-      </form>
-    </div>
+        {typewriterVisible && (
+          <div className="typewriter-effect" onClick={handleVisibility}>
+            <Typewriter
+              options={{
+                strings: productNames,
+                autoStart: true,
+                loop: true,
+              }}
+            />
+          </div>
+        )}
+      </div>
+    </Container>
   );
 }
