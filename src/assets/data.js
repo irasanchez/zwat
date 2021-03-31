@@ -48,7 +48,7 @@ module.exports = {
           img:
             'https://images-na.ssl-images-amazon.com/images/I/91wywhpX8UL._AC_SL1500_.jpg',
           imgAlt: 'A pouch of tooth powder in paper packaging.',
-          price: '$14',
+          price: '14',
         },
         {
           url: '',
@@ -82,7 +82,7 @@ module.exports = {
           img:
             'https://images-na.ssl-images-amazon.com/images/I/71nxia71fGL._SL1500_.jpg',
           imgAlt: '2 copper tongue scrapers with a carrying pouch.',
-          price: '$6',
+          price: '6',
         },
         {
           url: '',
@@ -147,7 +147,7 @@ module.exports = {
           img: 'https://durapik.co/wp-content/uploads/2020/08/durapik-1.png',
           imgAlt:
             'Stainless steel floss pick with a similar shape to a toothbrush.',
-          price: '$30',
+          price: '30',
         },
         {
           url: '',

@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 const { products } = require('../assets/data');
 
 export default function List() {
-  console.log(products);
   return (
     <ul>
       test

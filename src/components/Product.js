@@ -6,14 +6,13 @@ import {
   CardContent,
   CardHeader,
   CardMedia,
-  CssBaseline,
   Grid,
   Typography,
   Container,
 } from '@material-ui/core';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
 export default function Product({ product }) {
-  console.log(product.sources);
   return (
     <React.Fragment>
       <Container maxWidth="lg" component="main">
@@ -73,14 +72,16 @@ export default function Product({ product }) {
                   </ul> */}
                 </CardContent>
                 <CardActions>
-                  <Button
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    aria-label={`Buy ${source.title}`}
-                  >
-                    Buy
-                  </Button>
+                  <OutboundLink href={source.url} target="_blank">
+                    <Button
+                      fullWidth
+                      variant="contained"
+                      color="primary"
+                      aria-label={`Buy ${source.title}`}
+                    >
+                      Buy
+                    </Button>
+                  </OutboundLink>
                 </CardActions>
               </Card>
             </Grid>
